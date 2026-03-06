@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LO Consulting | Soluções para Óleo e Gás</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#d6cccc;
+color:#333;
+}
+
+header{
+background:#0b1d2a;
+color:white;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero{
+background:url("https://images.unsplash.com/photo-1581091012184-5c21d0e6d52b") center/cover;
+height:500px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 25px;
+background:#ff7b00;
+color:white;
+text-decoration:none;
+font-weight:bold;
+border-radius:5px;
+}
+
+section{
+padding:60px 10%;
+background:white;
+margin-bottom:10px;
+}
+
+.section-title{
+font-size:32px;
+margin-bottom:20px;
+color:#0b1d2a;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.service{
+background:#f4f4f4;
+padding:25px;
+border-radius:6px;
+}
+
+.service h3{
+margin-bottom:10px;
+color:#0b1d2a;
+}
+
+.diferenciais{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.diferencial{
+background:#f4f4f4;
+padding:20px;
+border-left:5px solid #ff7b00;
+}
+
+.contact form{
+display:grid;
+gap:15px;
+max-width:500px;
+}
+
+input, textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+button{
+background:#ff7b00;
+color:white;
+border:none;
+padding:12px;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+background:#0b1d2a;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h2>LO Consulting</h2>
+
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#servicos">Serviços</a>
+<a href="#diferenciais">Diferenciais</a>
+<a href="#contato">Contato</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1>Soluções Industriais para Óleo e Gás</h1>
+
+<p>
+A LO Consulting atua no setor de óleo e gás, especializada em projetos e fabricação
+de equipamentos industriais para aplicações onshore e offshore.
+</p>
+
+<a class="btn" href="#contato">Solicitar orçamento</a>
+
+</div>
+
+</section>
+
+<section id="sobre">
+
+<h2 class="section-title">Sobre a Empresa</h2>
+
+<p>
+A LO Consulting Comércio e Serviço atua no desenvolvimento de soluções industriais
+para o setor de óleo e gás, oferecendo serviços de engenharia, projetos técnicos
+e fabricação de equipamentos industriais para operações onshore e offshore.
+</p>
+
+</section>
+
+<section id="servicos">
+
+<h2 class="section-title">Nossos Serviços</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>Engenharia e Projetos</h3>
+<p>Desenvolvimento de projetos industriais voltados para aplicações no setor de óleo e gás.</p>
+</div>
+
+<div class="service">
+<h3>Fabricação de Equipamentos</h3>
+<p>Produção de equipamentos industriais com alto padrão de qualidade.</p>
+</div>
+
+<div class="service">
+<h3>Soluções Offshore</h3>
+<p>Equipamentos e suporte técnico para plataformas e operações marítimas.</p>
+</div>
+
+<div class="service">
+<h3>Soluções Onshore</h3>
+<p>Soluções industriais destinadas a operações em terra.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="diferenciais">
+
+<h2 class="section-title">Diferenciais</h2>
+
+<div class="diferenciais">
+
+<div class="diferencial">Especialização no setor de óleo e gás</div>
+
+<div class="diferencial">Projetos personalizados</div>
+
+<div class="diferencial">Alta qualidade técnica</div>
+
+<div class="diferencial">Soluções onshore e offshore</div>
+
+<div class="diferencial">Compromisso com segurança industrial</div>
+
+</div>
+
+</section>
+
+<section id="contato" class="contact">
+
+<h2 class="section-title">Solicite um Orçamento</h2>
+
+<form>
+
+<input type="text" placeholder="Nome">
+
+<input type="email" placeholder="Email">
+
+<input type="tel" placeholder="Telefone">
+
+<textarea rows="5" placeholder="Mensagem"></textarea>
+
+<button type="submit">Enviar mensagem</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>LO Consulting Comércio e Serviço</p>
+<p>Soluções industriais para o setor de óleo e gás</p>
+
+</footer>
+
+</body>
+</html>
