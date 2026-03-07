@@ -1,156 +1,35 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LO Consulting | Soluções para Óleo e Gás</title>
+<title>LO Consulting | Soluções Industriais para Óleo e Gás</title>
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-background:#d6cccc;
-color:#333;
-}
-
-header{
-background:#0b1d2a;
-color:white;
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.hero{
-background:url("https://images.unsplash.com/photo-1581091012184-5c21d0e6d52b") center/cover;
-height:500px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
-
-.hero h1{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-max-width:700px;
-margin:auto;
-}
-
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:12px 25px;
-background:#ff7b00;
-color:white;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px;
-}
-
-section{
-padding:60px 10%;
-background:white;
-margin-bottom:10px;
-}
-
-.section-title{
-font-size:32px;
-margin-bottom:20px;
-color:#0b1d2a;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.service{
-background:#f4f4f4;
-padding:25px;
-border-radius:6px;
-}
-
-.service h3{
-margin-bottom:10px;
-color:#0b1d2a;
-}
-
-.diferenciais{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.diferencial{
-background:#f4f4f4;
-padding:20px;
-border-left:5px solid #ff7b00;
-}
-
-.contact form{
-display:grid;
-gap:15px;
-max-width:500px;
-}
-
-input, textarea{
-padding:10px;
-border:1px solid #ccc;
-border-radius:4px;
-}
-
-button{
-background:#ff7b00;
-color:white;
-border:none;
-padding:12px;
-font-weight:bold;
-cursor:pointer;
-}
-
-footer{
-background:#0b1d2a;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-</style>
 </head>
 
 <body>
 
-<header>
+<header class="header">
 
-<h2>LO Consulting</h2>
+<div class="logo-area">
+<img src="img/logo.png" alt="LO Consulting">
 
-<nav>
+<div class="empresa">
+<h1>LO Consulting</h1>
+<p>Comércio e Serviço</p>
+</div>
+</div>
+
+<nav class="menu">
 <a href="#sobre">Sobre</a>
 <a href="#servicos">Serviços</a>
-<a href="#diferenciais">Diferenciais</a>
+<a href="#projetos">Projetos</a>
+<a href="#galeria">Galeria</a>
 <a href="#contato">Contato</a>
 </nav>
 
@@ -158,17 +37,25 @@ padding:20px;
 
 <section class="hero">
 
-<div>
+<div class="hero-slider">
 
-<h1>Soluções Industriais para Óleo e Gás</h1>
+<img src="img/hero1.jpeg" class="slide active">
+<img src="img/hero2.jpeg" class="slide">
+<img src="img/hero3.jpg" class="slide">
+<img src="img/hero4.jpg" class="slide">
+<img src="img/hero5.jpg" class="slide">
+<img src="img/hero6.jpg" class="slide">
+<img src="img/hero7.jpg" class="slide">
+<img src="img/hero8.jpg" class="slide">
 
-<p>
-A LO Consulting atua no setor de óleo e gás, especializada em projetos e fabricação
-de equipamentos industriais para aplicações onshore e offshore.
-</p>
 
-<a class="btn" href="#contato">Solicitar orçamento</a>
 
+</div>
+
+<div class="hero-content">
+<h1>Soluções Industriais para o Setor de Óleo e Gás</h1>
+<p>Engenharia, fornecimento de equipamentos e serviços especializados para operações onshore e offshore.</p>
+<a href="#servicos" class="btn">Conheça nossos serviços</a>
 </div>
 
 </section>
@@ -178,58 +65,94 @@ de equipamentos industriais para aplicações onshore e offshore.
 <h2 class="section-title">Sobre a Empresa</h2>
 
 <p>
-A LO Consulting Comércio e Serviço atua no desenvolvimento de soluções industriais
-para o setor de óleo e gás, oferecendo serviços de engenharia, projetos técnicos
-e fabricação de equipamentos industriais para operações onshore e offshore.
+A LO Consulting atua há mais de 15 anos no setor de óleo e gás,
+desenvolvendo projetos industriais e fabricando equipamentos
+para aplicações críticas na indústria energética. A empresa
+oferece soluções sob medida para operações onshore e offshore,
+com foco em qualidade, segurança e eficiência operacional.
 </p>
 
 </section>
 
 <section id="servicos">
 
-<h2 class="section-title">Nossos Serviços</h2>
+<h2 class="section-title">Serviços</h2>
 
-<div class="services">
+<div class="services-grid">
 
-<div class="service">
-<h3>Engenharia e Projetos</h3>
-<p>Desenvolvimento de projetos industriais voltados para aplicações no setor de óleo e gás.</p>
-</div>
-
-<div class="service">
+<div class="service-card">
 <h3>Fabricação de Equipamentos</h3>
-<p>Produção de equipamentos industriais com alto padrão de qualidade.</p>
+<p>Produção de skids, estruturas metálicas e equipamentos industriais para o setor de óleo e gás.</p>
 </div>
 
-<div class="service">
-<h3>Soluções Offshore</h3>
-<p>Equipamentos e suporte técnico para plataformas e operações marítimas.</p>
+<div class="service-card">
+<h3>Estruturas Metálicas</h3>
+<p>Projeto e fabricação de estruturas industriais com alta resistência e pintura anticorrosiva.</p>
 </div>
 
-<div class="service">
-<h3>Soluções Onshore</h3>
-<p>Soluções industriais destinadas a operações em terra.</p>
+<div class="service-card">
+<h3>Tubulações e Spools</h3>
+<p>Fabricação sob desenho técnico com revestimentos e testes de qualidade.</p>
+</div>
+
+<div class="service-card">
+<h3>Recuperação de Equipamentos</h3>
+<p>Manutenção e recuperação de válvulas industriais com pintura e tratamento de superfície.</p>
+</div>
+
+<div class="service-card">
+<h3>Inspeção e Qualidade</h3>
+<p>Ensaios não destrutivos e inspeções técnicas para garantir segurança e confiabilidade.</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="diferenciais">
+<section id="projetos">
 
-<h2 class="section-title">Diferenciais</h2>
+<h2 class="section-title">Projetos Realizados</h2>
 
-<div class="diferenciais">
+<div class="grid projects">
 
-<div class="diferencial">Especialização no setor de óleo e gás</div>
+<div class="card">
+<img src="img/skid.jpg">
+<h3>Skid Hidráulico BOP</h3>
+<p>Equipamento desenvolvido para controle de válvulas BOP em operações críticas.</p>
+</div>
 
-<div class="diferencial">Projetos personalizados</div>
+<div class="card">
+<img src="img/estrutura.jpg">
+<h3>Estrutura Offshore</h3>
+<p>Estrutura metálica reforçada desenvolvida para operações offshore.</p>
+</div>
 
-<div class="diferencial">Alta qualidade técnica</div>
+<div class="card">
+<img src="img/spool.jpg">
+<h3>Spools Industriais</h3>
+<p>Conjuntos com flanges para sistemas críticos com proteção anticorrosiva.</p>
+</div>
 
-<div class="diferencial">Soluções onshore e offshore</div>
+<div class="card">
+<img src="img/cesta.jpg">
+<h3>Cesta de Içamento</h3>
+<p>Equipamento para transporte seguro de materiais em ambientes industriais.</p>
+</div>
 
-<div class="diferencial">Compromisso com segurança industrial</div>
+</div>
+
+</section>
+
+<section id="galeria">
+
+<h2 class="section-title">Galeria</h2>
+
+<div class="gallery">
+
+<img src="img/projeto1.jpg">
+<img src="img/projeto2.jpg">
+<img src="img/projeto3.jpg">
+<img src="img/projeto4.jpg">
 
 </div>
 
@@ -237,7 +160,7 @@ e fabricação de equipamentos industriais para operações onshore e offshore.
 
 <section id="contato" class="contact">
 
-<h2 class="section-title">Solicite um Orçamento</h2>
+<h2 class="section-title">Contato</h2>
 
 <form>
 
@@ -262,271 +185,11 @@ e fabricação de equipamentos industriais para operações onshore e offshore.
 
 </footer>
 
-</body>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LO Consulting | Soluções para Óleo e Gás</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-background:#f4f4f4;
-color:#333;
-}
-
-header{
-background:#0b1d2a;
-color:white;
-padding:20px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.hero{
-background:url("https://images.unsplash.com/photo-1581091012184-5c21d0e6d52b") center/cover;
-height:500px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
-
-.hero h1{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-max-width:700px;
-margin:auto;
-}
-
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:12px 25px;
-background:#ff7b00;
-color:white;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px;
-}
-
-section{
-padding:60px 10%;
-background:white;
-margin-bottom:10px;
-}
-
-.section-title{
-font-size:32px;
-margin-bottom:20px;
-color:#0b1d2a;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.service{
-background:#f4f4f4;
-padding:25px;
-border-radius:6px;
-}
-
-.service h3{
-margin-bottom:10px;
-color:#0b1d2a;
-}
-
-.diferenciais{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.diferencial{
-background:#f4f4f4;
-padding:20px;
-border-left:5px solid #ff7b00;
-}
-
-.contact form{
-display:grid;
-gap:15px;
-max-width:500px;
-}
-
-input, textarea{
-padding:10px;
-border:1px solid #ccc;
-border-radius:4px;
-}
-
-button{
-background:#ff7b00;
-color:white;
-border:none;
-padding:12px;
-font-weight:bold;
-cursor:pointer;
-}
-
-footer{
-background:#0b1d2a;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-
-<h2>LO Consulting</h2>
-
-<nav>
-<a href="#sobre">Sobre</a>
-<a href="#servicos">Serviços</a>
-<a href="#diferenciais">Diferenciais</a>
-<a href="#contato">Contato</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div>
-
-<h1>Soluções Industriais para Óleo e Gás</h1>
-
-<p>
-A LO Consulting atua no setor de óleo e gás, especializada em projetos e fabricação
-de equipamentos industriais para aplicações onshore e offshore.
-</p>
-
-<a class="btn" href="#contato">Solicitar orçamento</a>
-
-</div>
-
-</section>
-
-<section id="sobre">
-
-<h2 class="section-title">Sobre a Empresa</h2>
-
-<p>
-A LO Consulting Comércio e Serviço atua no desenvolvimento de soluções industriais
-para o setor de óleo e gás, oferecendo serviços de engenharia, projetos técnicos
-e fabricação de equipamentos industriais para operações onshore e offshore.
-</p>
-
-</section>
-
-<section id="servicos">
-
-<h2 class="section-title">Nossos Serviços</h2>
-
-<div class="services">
-
-<div class="service">
-<h3>Engenharia e Projetos</h3>
-<p>Desenvolvimento de projetos industriais voltados para aplicações no setor de óleo e gás.</p>
-</div>
-
-<div class="service">
-<h3>Fabricação de Equipamentos</h3>
-<p>Produção de equipamentos industriais com alto padrão de qualidade.</p>
-</div>
-
-<div class="service">
-<h3>Soluções Offshore</h3>
-<p>Equipamentos e suporte técnico para plataformas e operações marítimas.</p>
-</div>
-
-<div class="service">
-<h3>Soluções Onshore</h3>
-<p>Soluções industriais destinadas a operações em terra.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="diferenciais">
-
-<h2 class="section-title">Diferenciais</h2>
-
-<div class="diferenciais">
-
-<div class="diferencial">Especialização no setor de óleo e gás</div>
-
-<div class="diferencial">Projetos personalizados</div>
-
-<div class="diferencial">Alta qualidade técnica</div>
-
-<div class="diferencial">Soluções onshore e offshore</div>
-
-<div class="diferencial">Compromisso com segurança industrial</div>
-
-</div>
-
-</section>
-
-<section id="contato" class="contact">
-
-<h2 class="section-title">Solicite um Orçamento</h2>
-
-<form>
-
-<input type="text" placeholder="Nome">
-
-<input type="email" placeholder="Email">
-
-<input type="tel" placeholder="Telefone">
-
-<textarea rows="5" placeholder="Mensagem"></textarea>
-
-<button type="submit">Enviar mensagem</button>
-
-</form>
-
-</section>
-
-<footer>
-
-<p>LO Consulting Comércio e Serviço</p>
-<p>Soluções industriais para o setor de óleo e gás</p>
-
-</footer>
+<a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">
+WhatsApp
+</a>
+
+<script src="script.js"></script>
 
 </body>
->>>>>>> 7e5a803cefac74018411fd371ce9a95a3f2bc349
 </html>
