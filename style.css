@@ -296,6 +296,7 @@ color:#555;
 
 .sobre-img img{
 width:100%;
+max-width:400px;
 border-radius:8px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
@@ -533,6 +534,19 @@ cursor:pointer;
 
 @media(max-width:900px){
 
+.logo-area img{
+width:55px;
+}
+
+.empresa h1{
+font-size:18px;
+}
+
+.empresa p{
+font-size:12px;
+}
+
+}
 .menu{
 transition:0,3s;
 display:none;
@@ -559,6 +573,14 @@ display:block;
 
 .header{
 padding:15px 30px;
+}
+
+@media(max-width:900px){
+
+.sobre-img img{
+width:70%;
+display:block;
+margin:0 auto;
 }
 
 }
