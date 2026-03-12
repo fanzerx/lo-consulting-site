@@ -10,7 +10,13 @@
 
 <link rel="stylesheet" href="style.css">
 
+
 </head>
+
+<div id="image-modal" class="image-modal">
+<span class="close">&times;</span>
+<img class="modal-content" id="modal-img">
+</div>
 
 <body>
 
@@ -33,6 +39,9 @@
 <a href="#contato">Contato</a>
 </nav>
 
+<div class="menu-toggle">☰</div>
+
+
 </header>
 
 <section class="hero">
@@ -47,103 +56,212 @@
 <img src="img/hero6.jpg" class="slide">
 <img src="img/hero7.jpg" class="slide">
 <img src="img/hero8.jpg" class="slide">
-
-
-
 </div>
+
+<!-- Botões -->
+<div class="slider-buttons">
+<button id="prev">&#10094;</button>
+<button id="next">&#10095;</button>
+</div>
+
+<!-- Bolinhas -->
+<div class="slider-dots"></div>
+
 
 <div class="hero-content">
 <h1>Soluções Industriais para o Setor de Óleo e Gás</h1>
+
 <p>Engenharia, fornecimento de equipamentos e serviços especializados para operações onshore e offshore.</p>
 <a href="#servicos" class="btn">Conheça nossos serviços</a>
 </div>
 
 </section>
 
-<section id="sobre">
+<!-- sobre -->
 
-<h2 class="section-title">Sobre a Empresa</h2>
+<section id="sobre" class="sobre reveal">
+
+<div class="sobre-container">
+
+<div class="sobre-texto">
+
+<h2 class="section-title">Sobre a LO Consulting</h2>
 
 <p>
 A LO Consulting atua há mais de 15 anos no setor de óleo e gás,
 desenvolvendo projetos industriais e fabricando equipamentos
-para aplicações críticas na indústria energética. A empresa
-oferece soluções sob medida para operações onshore e offshore,
-com foco em qualidade, segurança e eficiência operacional.
+para aplicações críticas na indústria energética.
 </p>
+
+<p>
+A empresa oferece soluções sob medida para operações onshore e offshore,
+com foco em qualidade, segurança e eficiência operacional,
+seguindo padrões internacionais da indústria.
+</p>
+
+<div class="sobre-numeros">
+
+<div class="numero">
+<h3 class="counter" data-target="15">0</h3>
+<p>Anos de Experiência</p>
+</div>
+
+<div class="numero">
+<h3 class="counter" data-target="120">0</h3>
+<p>Projetos Realizados</p>
+</div>
+
+<div class="numero">
+<h3 class="counter" data-target="30">0</h3>
+<p>Clientes Atendidos</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="sobre-img">
+<img src="img/empresa.jpg" alt="LO Consulting">
+</div>
+
+</div>
 
 </section>
 
-<section id="servicos">
+</section>
 
-<h2 class="section-title">Serviços</h2>
+<!--serviços -->
+
+<section id="servicos" class="servicos reveal">
+
+<h2 class="section-title">Nossos Serviços</h2>
 
 <div class="services-grid">
 
 <div class="service-card">
+
+<div class="service-icon">⚙️</div>
+
 <h3>Fabricação de Equipamentos</h3>
-<p>Produção de skids, estruturas metálicas e equipamentos industriais para o setor de óleo e gás.</p>
+
+<p>
+Produção de skids, módulos industriais e equipamentos
+para aplicações no setor de óleo e gás.
+</p>
+
 </div>
 
+
 <div class="service-card">
+
+<div class="service-icon">🏗️</div>
+
 <h3>Estruturas Metálicas</h3>
-<p>Projeto e fabricação de estruturas industriais com alta resistência e pintura anticorrosiva.</p>
+
+<p>
+Projeto e fabricação de estruturas metálicas
+com alta resistência e proteção anticorrosiva.
+</p>
+
 </div>
 
+
 <div class="service-card">
+
+<div class="service-icon">🔩</div>
+
 <h3>Tubulações e Spools</h3>
-<p>Fabricação sob desenho técnico com revestimentos e testes de qualidade.</p>
+
+<p>
+Fabricação de spools industriais sob desenho técnico
+com controle rigoroso de qualidade.
+</p>
+
 </div>
 
+
 <div class="service-card">
+
+<div class="service-icon">🛠️</div>
+
 <h3>Recuperação de Equipamentos</h3>
-<p>Manutenção e recuperação de válvulas industriais com pintura e tratamento de superfície.</p>
+
+<p>
+Serviços de manutenção e recuperação de válvulas
+e equipamentos industriais.
+</p>
+
 </div>
 
+
 <div class="service-card">
+
+<div class="service-icon">🔬</div>
+
 <h3>Inspeção e Qualidade</h3>
-<p>Ensaios não destrutivos e inspeções técnicas para garantir segurança e confiabilidade.</p>
+
+<p>
+Ensaios não destrutivos e inspeções técnicas
+para garantir segurança e confiabilidade.
+</p>
+
 </div>
 
 </div>
 
 </section>
 
-<section id="projetos">
+<section id="projetos" class="reveal">
 
 <h2 class="section-title">Projetos Realizados</h2>
 
 <div class="grid projects">
 
-<div class="card">
+<div class="project-card">
 <img src="img/skid.jpg">
+
+<div class="project-info">
 <h3>Skid Hidráulico BOP</h3>
 <p>Equipamento desenvolvido para controle de válvulas BOP em operações críticas.</p>
 </div>
 
-<div class="card">
+</div>
+
+<div class="project-card">
 <img src="img/estrutura.jpg">
+
+<div class="project-info">
 <h3>Estrutura Offshore</h3>
 <p>Estrutura metálica reforçada desenvolvida para operações offshore.</p>
 </div>
 
-<div class="card">
+</div>
+
+<div class="project-card">
 <img src="img/spool.jpg">
+
+<div class="project-info">
 <h3>Spools Industriais</h3>
 <p>Conjuntos com flanges para sistemas críticos com proteção anticorrosiva.</p>
 </div>
 
-<div class="card">
+</div>
+
+<div class="project-card">
 <img src="img/cesta.jpg">
+
+<div class="project-info">
 <h3>Cesta de Içamento</h3>
 <p>Equipamento para transporte seguro de materiais em ambientes industriais.</p>
 </div>
 
 </div>
 
+</div>
+
 </section>
 
-<section id="galeria">
+<section id="galeria" class="reveal">
 
 <h2 class="section-title">Galeria</h2>
 
@@ -158,7 +276,7 @@ com foco em qualidade, segurança e eficiência operacional.
 
 </section>
 
-<section id="contato" class="contact">
+<section id="contato" class="contact reveal">
 
 <h2 class="section-title">Contato</h2>
 
@@ -180,16 +298,28 @@ com foco em qualidade, segurança e eficiência operacional.
 
 <footer>
 
+<footer>
+
 <p>LO Consulting Comércio e Serviço</p>
 <p>Soluções industriais para o setor de óleo e gás</p>
 
 </footer>
 
+<!-- MODAL DE IMAGEM -->
+
+<div id="image-modal" class="image-modal">
+<span class="close">&times;</span>
+<img class="modal-content" id="modal-img">
+</div>
+
 <a class="whatsapp" href="https://wa.me/5599999999999" target="_blank">
-WhatsApp
+💬 Falar no WhatsApp
 </a>
 
 <script src="script.js"></script>
+
+</body>
+</html>
 
 </body>
 </html>
