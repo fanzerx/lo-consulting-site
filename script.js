@@ -1,185 +1,283 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
+  /* =========================
+  SLIDER
+  ========================= */
+  const slides = document.querySelectorAll(".slide");
+  const dotsContainer = document.querySelector(".slider-dots");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+  const hero = document.querySelector(".hero");
 
-/* =========================
-SLIDER
-========================= */
+  let index = 0;
+  let interval = null;
+  const sliderDelay = 4000;
 
-const slides = document.querySelectorAll(".slide");
-const dotsContainer = document.querySelector(".slider-dots");
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
+  if (slides.length > 0 && dotsContainer) {
+    slides.forEach((slide, i) => {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
 
-let index = 0;
-let interval;
+      if (i === 0) {
+        dot.classList.add("active");
+      }
 
-if(slides.length > 0){
+      dot.addEventListener("click", () => {
+        showSlide(i);
+        restartSlider();
+      });
 
-slides.forEach((slide,i)=>{
+      dotsContainer.appendChild(dot);
+    });
 
-let dot = document.createElement("div");
-dot.classList.add("dot");
+    const dots = document.querySelectorAll(".dot");
 
-if(i === 0){
-dot.classList.add("active");
-}
+    function showSlide(i) {
+      slides[index].classList.remove("active");
+      dots[index].classList.remove("active");
 
-dot.addEventListener("click",()=> showSlide(i));
+      index = i;
 
-dotsContainer.appendChild(dot);
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+    }
 
-});
+    function nextSlide() {
+      const newIndex = (index + 1) % slides.length;
+      showSlide(newIndex);
+    }
 
-const dots = document.querySelectorAll(".dot");
+    function prevSlide() {
+      const newIndex = (index - 1 + slides.length) % slides.length;
+      showSlide(newIndex);
+    }
 
-function showSlide(i){
+    function startSlider() {
+      stopSlider();
+      interval = setInterval(nextSlide, sliderDelay);
+    }
 
-slides[index].classList.remove("active");
-dots[index].classList.remove("active");
+    function stopSlider() {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    }
 
-index = i;
+    function restartSlider() {
+      startSlider();
+    }
 
-slides[index].classList.add("active");
-dots[index].classList.add("active");
+    if (next) {
+      next.addEventListener("click", function () {
+        nextSlide();
+        restartSlider();
+      });
+    }
 
-}
+    if (prev) {
+      prev.addEventListener("click", function () {
+        prevSlide();
+        restartSlider();
+      });
+    }
 
-function nextSlide(){
+    if (hero) {
+      hero.addEventListener("mouseenter", stopSlider);
+      hero.addEventListener("mouseleave", startSlider);
+    }
 
-let newIndex = (index + 1) % slides.length;
-showSlide(newIndex);
+    startSlider();
+  }
 
-}
+/*certificados*/
 
-function prevSlide(){
+const certificados = document.querySelectorAll(".certificado-float");
 
-let newIndex = (index - 1 + slides.length) % slides.length;
-showSlide(newIndex);
-
-}
-
-if(next) next.onclick = nextSlide;
-if(prev) prev.onclick = prevSlide;
-
-function startSlider(){
-interval = setInterval(nextSlide,4000);
-}
-
-startSlider();
-
-}
-
-/* =========================
-IMAGE MODAL
-========================= */
-
-const projectImages = document.querySelectorAll(".project-card img, .gallery img");
-const modal = document.getElementById("image-modal");
-const modalImg = document.getElementById("modal-img");
-const close = document.querySelector(".close");
-
-projectImages.forEach(img => {
+certificados.forEach(img => {
 
 img.addEventListener("click", function(){
 
-if(modal){
 modal.style.display = "flex";
 modalImg.src = this.src;
-}
 
 });
 
 });
 
-if(close){
-close.onclick = function(){
-modal.style.display = "none";
-}
-}
 
-/* =========================
-REVEAL SECTION
-========================= */
+  /* =========================
+  IMAGE MODAL
+  ========================= */
+  const projectImages = document.querySelectorAll(".project-card img, .gallery img, .service-gallery img, .crc-imagem img");
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const close = document.querySelector(".close");
 
-function revealSections(){
+  if (projectImages.length > 0 && modal && modalImg) {
+    projectImages.forEach((img) => {
+      img.addEventListener("click", function () {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+        modalImg.alt = this.alt || "Imagem ampliada";
+      });
+    });
 
-const reveals = document.querySelectorAll(".reveal");
+    if (close) {
+      close.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+    }
 
-reveals.forEach(el=>{
+    modal.onclick = function(e){
+    if(e.target === modal){
+    modal.style.display = "none";
+    }
+    }
 
-let windowHeight = window.innerHeight;
-let elementTop = el.getBoundingClientRect().top;
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
 
-if(elementTop < windowHeight - 100){
-el.classList.add("active");
-}
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.style.display === "flex") {
+        modal.style.display = "none";
+      }
+    });
+  }
 
-});
+  /* =========================
+  REVEAL SECTION
+  ========================= */
+  function revealSections() {
+    const reveals = document.querySelectorAll(".reveal");
 
-}
+    reveals.forEach((el) => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
 
-window.addEventListener("scroll", revealSections);
+      if (elementTop < windowHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  }
 
-/* =========================
-HEADER SCROLL
-========================= */
+  window.addEventListener("scroll", revealSections);
+  revealSections();
 
-const header = document.querySelector(".header");
+  /* =========================
+  HEADER SCROLL
+  ========================= */
+  const header = document.querySelector(".header");
 
-window.addEventListener("scroll", function(){
+  if (header) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  }
 
-if(window.scrollY > 50){
-header.classList.add("scrolled");
-}else{
-header.classList.remove("scrolled");
-}
+  /* =========================
+  COUNTERS
+  ========================= */
+  const counters = document.querySelectorAll(".counter");
+  let countersStarted = false;
 
-});
+  function startCounters() {
+    if (countersStarted) return;
 
-/* =========================
-COUNTERS
-========================= */
+    const sobreSection = document.querySelector(".sobre-numeros");
+    if (!sobreSection) return;
 
-const counters = document.querySelectorAll(".counter");
+    const sectionTop = sobreSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
-counters.forEach(counter => {
+    if (sectionTop < windowHeight - 80) {
+      counters.forEach((counter) => {
+        counter.innerText = "0";
 
-counter.innerText = "0";
+        const target = +counter.getAttribute("data-target");
+        const duration = 1800;
+        const stepTime = 20;
+        const totalSteps = Math.max(1, Math.floor(duration / stepTime));
+        const increment = target / totalSteps;
 
-const updateCounter = () => {
+        function updateCounter() {
+          const current = +counter.innerText;
 
-const target = +counter.getAttribute("data-target");
-const current = +counter.innerText;
+          if (current < target) {
+            counter.innerText = `${Math.ceil(current + increment)}`;
+            setTimeout(updateCounter, stepTime);
+          } else {
+            counter.innerText = `${target}+`;
+          }
+        }
 
-const increment = target / 100;
+        updateCounter();
+      });
 
-if(current < target){
+      countersStarted = true;
+    }
+  }
 
-counter.innerText = Math.ceil(current + increment);
-setTimeout(updateCounter,20);
+  window.addEventListener("scroll", startCounters);
+  startCounters();
 
-}else{
+  /* =========================
+  MENU MOBILE
+  ========================= */
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".menu");
+  const menuLinks = document.querySelectorAll(".menu a");
 
-counter.innerText = target + "+";
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () {
+      menu.classList.toggle("active");
+    });
 
-}
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        menu.classList.remove("active");
+      });
+    });
 
-};
+    document.addEventListener("click", function (e) {
+      const clickedInsideMenu = menu.contains(e.target);
+      const clickedToggle = toggle.contains(e.target);
 
-updateCounter();
+      if (!clickedInsideMenu && !clickedToggle) {
+        menu.classList.remove("active");
+      }
+    });
+  }
 
-});
+  /* =========================
+  SCROLL SUAVE MENU
+  ========================= */
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetSelector = this.getAttribute("href");
 
-/* =========================
-MENU MOBILE
-========================= */
+      if (!targetSelector || targetSelector === "#") return;
 
-const toggle = document.querySelector(".menu-toggle");
-const menu = document.querySelector(".menu");
+      const targetElement = document.querySelector(targetSelector);
 
-if(toggle){
-toggle.addEventListener("click", function(){
-menu.classList.toggle("active");
-});
-}
+      if (targetElement) {
+        e.preventDefault();
 
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition =
+          targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
+    });
+  });
 });
