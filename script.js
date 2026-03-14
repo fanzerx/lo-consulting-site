@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   /* =========================
-  SLIDER
+     SLIDER
   ========================= */
   const slides = document.querySelectorAll(".slide");
   const dotsContainer = document.querySelector(".slider-dots");
@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const next = document.getElementById("next");
   const hero = document.querySelector(".hero");
 
-  let index = 0;
-  let interval = null;
+  let currentIndex = 0;
+  let sliderInterval = null;
   const sliderDelay = 4000;
 
   if (slides.length > 0 && dotsContainer) {
-    slides.forEach((slide, i) => {
+    slides.forEach((_, i) => {
       const dot = document.createElement("div");
       dot.classList.add("dot");
 
@@ -31,35 +31,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dots = document.querySelectorAll(".dot");
 
-    function showSlide(i) {
-      slides[index].classList.remove("active");
-      dots[index].classList.remove("active");
+    function showSlide(newIndex) {
+      slides[currentIndex].classList.remove("active");
+      dots[currentIndex].classList.remove("active");
 
-      index = i;
+      currentIndex = newIndex;
 
-      slides[index].classList.add("active");
-      dots[index].classList.add("active");
+      slides[currentIndex].classList.add("active");
+      dots[currentIndex].classList.add("active");
     }
 
     function nextSlide() {
-      const newIndex = (index + 1) % slides.length;
+      const newIndex = (currentIndex + 1) % slides.length;
       showSlide(newIndex);
     }
 
     function prevSlide() {
-      const newIndex = (index - 1 + slides.length) % slides.length;
+      const newIndex = (currentIndex - 1 + slides.length) % slides.length;
       showSlide(newIndex);
     }
 
     function startSlider() {
       stopSlider();
-      interval = setInterval(nextSlide, sliderDelay);
+      sliderInterval = setInterval(nextSlide, sliderDelay);
     }
 
     function stopSlider() {
-      if (interval) {
-        clearInterval(interval);
-        interval = null;
+      if (sliderInterval) {
+        clearInterval(sliderInterval);
+        sliderInterval = null;
       }
     }
 
@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (next) {
-      next.addEventListener("click", function () {
+      next.addEventListener("click", () => {
         nextSlide();
         restartSlider();
       });
     }
 
     if (prev) {
-      prev.addEventListener("click", function () {
+      prev.addEventListener("click", () => {
         prevSlide();
         restartSlider();
       });
@@ -89,76 +89,69 @@ document.addEventListener("DOMContentLoaded", function () {
     startSlider();
   }
 
-/*certificados*/
-
-const certificados = document.querySelectorAll(".certificado-float");
-
-certificados.forEach(img => {
-
-img.addEventListener("click", function(){
-
-modal.style.display = "flex";
-modalImg.src = this.src;
-
-});
-
-});
-
-
   /* =========================
-  IMAGE MODAL
+     IMAGE MODAL
   ========================= */
-  const projectImages = document.querySelectorAll(".project-card img, .gallery img, .service-gallery img, .crc-imagem img");
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img");
-  const close = document.querySelector(".close");
+  const closeBtn = document.querySelector(".close");
 
-  if (projectImages.length > 0 && modal && modalImg) {
-    projectImages.forEach((img) => {
-      img.addEventListener("click", function () {
-        modal.style.display = "flex";
-        modalImg.src = this.src;
-        modalImg.alt = this.alt || "Imagem ampliada";
+ const clickableImages = document.querySelectorAll(
+  ".gallery img, .service-gallery img, .equip-gallery img, .mao-card img, .parafusos-gallery img, .tanques-gallery img, .certificado-float, .clientes-grid img"
+);
+
+  function openModal(src, alt = "Imagem ampliada") {
+    if (!modal || !modalImg) return;
+
+    modal.style.display = "flex";
+    modalImg.src = src;
+    modalImg.alt = alt;
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.style.display = "none";
+  }
+
+  if (clickableImages.length > 0 && modal && modalImg) {
+    clickableImages.forEach((img) => {
+      img.addEventListener("click", () => {
+        openModal(img.src, img.alt || "Imagem ampliada");
       });
     });
 
-    if (close) {
-      close.addEventListener("click", function () {
-        modal.style.display = "none";
-      });
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
     }
 
-    modal.onclick = function(e){
-    if(e.target === modal){
-    modal.style.display = "none";
-    }
-    }
-
-    modal.addEventListener("click", function (e) {
+    modal.addEventListener("click", (e) => {
       if (e.target === modal) {
-        modal.style.display = "none";
+        closeModal();
       }
     });
 
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal.style.display === "flex") {
-        modal.style.display = "none";
+        closeModal();
       }
     });
   }
 
   /* =========================
-  REVEAL SECTION
+     REVEAL SECTION
   ========================= */
-  function revealSections() {
-    const reveals = document.querySelectorAll(".reveal");
+  const revealElements = document.querySelectorAll(".reveal");
 
-    reveals.forEach((el) => {
-      const windowHeight = window.innerHeight;
-      const elementTop = el.getBoundingClientRect().top;
+  function revealSections() {
+    if (revealElements.length === 0) return;
+
+    const windowHeight = window.innerHeight;
+
+    revealElements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
 
       if (elementTop < windowHeight - 100) {
-        el.classList.add("active");
+        element.classList.add("active");
       }
     });
   }
@@ -167,50 +160,34 @@ modalImg.src = this.src;
   revealSections();
 
   /* =========================
-  HEADER SCROLL
-  ========================= */
-  const header = document.querySelector(".header");
-
-  if (header) {
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-  }
-
-  /* =========================
-  COUNTERS
+     COUNTERS
   ========================= */
   const counters = document.querySelectorAll(".counter");
+  const countersSection = document.querySelector(".sobre-numeros");
   let countersStarted = false;
 
   function startCounters() {
-    if (countersStarted) return;
+    if (countersStarted || counters.length === 0 || !countersSection) return;
 
-    const sobreSection = document.querySelector(".sobre-numeros");
-    if (!sobreSection) return;
-
-    const sectionTop = sobreSection.getBoundingClientRect().top;
+    const sectionTop = countersSection.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
     if (sectionTop < windowHeight - 80) {
       counters.forEach((counter) => {
         counter.innerText = "0";
 
-        const target = +counter.getAttribute("data-target");
+        const target = Number(counter.getAttribute("data-target")) || 0;
         const duration = 1800;
         const stepTime = 20;
         const totalSteps = Math.max(1, Math.floor(duration / stepTime));
         const increment = target / totalSteps;
 
         function updateCounter() {
-          const current = +counter.innerText;
+          const current = Number(counter.innerText);
 
           if (current < target) {
-            counter.innerText = `${Math.ceil(current + increment)}`;
+            const nextValue = Math.ceil(current + increment);
+            counter.innerText = String(nextValue > target ? target : nextValue);
             setTimeout(updateCounter, stepTime);
           } else {
             counter.innerText = `${target}+`;
@@ -228,54 +205,23 @@ modalImg.src = this.src;
   startCounters();
 
   /* =========================
-  MENU MOBILE
+     SCROLL SUAVE PARA MENU
   ========================= */
-  const toggle = document.querySelector(".menu-toggle");
-  const menu = document.querySelector(".menu");
-  const menuLinks = document.querySelectorAll(".menu a");
+  const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-  if (toggle && menu) {
-    toggle.addEventListener("click", function () {
-      menu.classList.toggle("active");
-    });
+  anchorLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
 
-    menuLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        menu.classList.remove("active");
-      });
-    });
+      if (!targetId || targetId === "#") return;
 
-    document.addEventListener("click", function (e) {
-      const clickedInsideMenu = menu.contains(e.target);
-      const clickedToggle = toggle.contains(e.target);
+      const target = document.querySelector(targetId);
 
-      if (!clickedInsideMenu && !clickedToggle) {
-        menu.classList.remove("active");
-      }
-    });
-  }
-
-  /* =========================
-  SCROLL SUAVE MENU
-  ========================= */
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const targetSelector = this.getAttribute("href");
-
-      if (!targetSelector || targetSelector === "#") return;
-
-      const targetElement = document.querySelector(targetSelector);
-
-      if (targetElement) {
+      if (target) {
         e.preventDefault();
-
-        const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition =
-          targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-        window.scrollTo({
-          top: targetPosition,
+        target.scrollIntoView({
           behavior: "smooth",
+          block: "start",
         });
       }
     });
